@@ -247,11 +247,10 @@ class r extends t.default{}e.default=r})),define("telegram-app-market-front/rout
 var n=t.default.extend({router:(0,r.inject)(),session:(0,r.inject)(),afterModel(){let e=this
 Ember.getOwner(this).lookup("controller:application").set("telegramcallback",(function(){e.router.transitionTo("main-page")})),window.Telegram.WebApp.BackButton.show(),window.Telegram.WebApp.MainButton.hide()}})
 e.default=n})),define("telegram-app-market-front/routes/login",["exports","@ember/routing/route","@ember/service"],(function(e,t,r){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var n=t.default.extend({router:(0,r.inject)(),session:(0,r.inject)(),hash:void 0,user:void 0,initData:void 0,beforeModel(){if(this.session.isAuthenticated)this.router.transitionTo("main-page")
-else{let t=window.Telegram.WebApp.initDataUnsafe,r=this
-r.set("hashuser",t.user),r.set("hash",t.hash),r.set("initData",window.Telegram.WebApp.initData)
-try{let e=this.getProperties("hashuser","hash","initData"),t="authenticator:token"
-this.session.authenticate(t,e).then((function(e){location.reload(),r.transitionToRoute("main-page")})).catch((function(e){})).finally((function(){}))}catch(e){}}}})
+var n=t.default.extend({router:(0,r.inject)(),session:(0,r.inject)(),hash:void 0,user:void 0,initData:void 0,checkAuth(){let e=window.Telegram.WebApp.initDataUnsafe,t=this
+t.set("hashuser",e.user),t.set("hash",e.hash),t.set("initData",window.Telegram.WebApp.initData)
+try{let e=this.getProperties("hashuser","hash","initData"),r="authenticator:token"
+this.session.authenticate(r,e).then((function(e){location.reload(),t.transitionToRoute("main-page")})).catch((function(e){t.checkAuth()})).finally((function(){}))}catch(r){}},beforeModel(){this.session.isAuthenticated?this.router.transitionTo("main-page"):this.checkAuth()}})
 e.default=n})),define("telegram-app-market-front/routes/main-page",["exports","@ember/routing/route","@ember/service"],(function(e,t,r){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var n=t.default.extend({router:(0,r.inject)(),session:(0,r.inject)(),beforeModel(){this.session.isAuthenticated||this.router.transitionTo("login")},afterModel(){window.Telegram.WebApp.BackButton.hide(),window.Telegram.WebApp.MainButton.hide(),window.stop()}})
 e.default=n})),define("telegram-app-market-front/routes/product",["exports","@ember/routing/route","@ember/service","telegram-app-market-front/config/environment"],(function(e,t,r,n){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
