@@ -103,8 +103,8 @@ return n.default.$.ajax({url:l.default.APP.host+"/api/Stories",type:"GET",header
 e.default=u})),define("telegram-app-market-front/components/swiper-container",["exports","ember-cli-swiper/components/swiper-container"],(function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("telegram-app-market-front/components/swiper-slide",["exports","ember-cli-swiper/components/swiper-slide"],(function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("telegram-app-market-front/components/telegram-image",["exports","@ember/component","@ember/template-factory","ember","@ember/service","telegram-app-market-front/config/environment"],(function(e,t,r,n,a,o){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 const l=(0,r.createTemplateFactory)({id:"Bd6auYrh",block:'[[[10,"img"],[15,"src",[29,[[36,0]]]],[14,"alt","avatar"],[12],[13]],[],false,["url"]]',moduleName:"telegram-app-market-front/components/telegram-image.hbs",isStrictMode:!1})
 var i=(0,t.setComponentTemplate)(l,n.default.Component.extend({session:(0,a.inject)("session"),url:"",didInsertElement(){this._super(...arguments)
-let e=window.Telegram.WebApp.initDataUnsafe,t=o.default.APP.host+"/api/users/"+e.user.id+"/avatar"
-this.set("url",t)}}))
+let e="https://integration.bunkerdev.ru/webhook/Get-image?telegramid="+window.Telegram.WebApp.initDataUnsafe.user.id
+this.set("url",e)}}))
 e.default=i})),define("telegram-app-market-front/components/tooltip",["exports","@ember/component","@ember/template-factory","@glimmer/component"],(function(e,t,r,n){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 const a=(0,r.createTemplateFactory)({id:"8cWkoQ/q",block:'[[[18,1,null]],["&default"],false,["yield"]]',moduleName:"telegram-app-market-front/components/tooltip.hbs",isStrictMode:!1})
 var o=(0,t.setComponentTemplate)(a,Ember.Component.extend({customClass:"tooltipped",didInsertElement(){this._super(...arguments),this.$("."+this.customClass).tooltip()}}))
